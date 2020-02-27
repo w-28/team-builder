@@ -28,19 +28,19 @@ function Form(props){
     return (
         <form className='member-form' onSubmit={submitForm}>
             <label htmlFor='name'>Name: </label>
-            <input id='name' type='text' name='name' onChange={handleChanges}/>
+            <input id='name' type='text' name='name' value={member.name} onChange={handleChanges}/>
 
             <label htmlFor='email'>Email: </label>
-            <input id='email' type='text' name='email' onChange={handleChanges}/>
+            <input id='email' type='text' name='email' value={member.email} onChange={handleChanges}/>
 
             <label htmlFor='role'>Role: </label>
-            <input id='role' type='text' name='role' onChange={handleChanges}/>
+            <input id='role' type='text' name='role' value={member.role} onChange={handleChanges}/>
 
             <label htmlFor='hobby'>Hobby: </label>
-            <input id='hobby' type='text' name='hobby' onChange={handleChanges}/>
+            <input id='hobby' type='text' name='hobby' value={member.hobby} onChange={handleChanges}/>
 
             <label htmlFor='favquote'>Favorite Quote: </label>
-            <textarea id='favquote' name='favquote' onChange={handleChanges}/>
+            <textarea id='favquote' name='favquote' value={member.favquote} onChange={handleChanges}/>
 
             <button type='submit'>Add New Member</button>
 
