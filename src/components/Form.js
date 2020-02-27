@@ -12,6 +12,10 @@ function Form(props){
     );
 
     //onChange handler for form input
+    let handleChanges = event => {
+        setMember({...member, [event.target.name]: event.target.value})
+        console.log(member)
+    }
 
     //onSubmit for preventing default and adding new member
 
@@ -19,19 +23,19 @@ function Form(props){
     return (
         <form className='member-form'>
             <label htmlFor='name'>Name: </label>
-            <input id='name' type='text' name='name'/>
+            <input id='name' type='text' name='name' onChange={handleChanges}/>
 
             <label htmlFor='email'>Email: </label>
-            <input id='email' type='text' name='email'/>
+            <input id='email' type='text' name='email' onChange={handleChanges}/>
 
             <label htmlFor='role'>Role: </label>
-            <input id='role' type='text' name='role'/>
+            <input id='role' type='text' name='role' onChange={handleChanges}/>
 
             <label htmlFor='hobby'>Hobby: </label>
-            <input id='hobby' type='text' name='hobby'/>
+            <input id='hobby' type='text' name='hobby' onChange={handleChanges}/>
 
             <label htmlFor='favquote'>Favorite Quote: </label>
-            <textarea id='favquote' name='favquote'/>
+            <textarea id='favquote' name='favquote' onChange={handleChanges}/>
 
         </form>
     )

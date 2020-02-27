@@ -9,7 +9,7 @@ function Members(props){
                     <p>E-mail: {member.email}</p>
                     <p>Role: {member.role}</p>
                     <p>Hobby: {member.hobby}</p>
-                    <p>Favorite Quote: <p>{member.favquote}</p></p>
+                    <p>Favorite Quote: {member.favquote}</p>
                 </div>
             ))}
         </div>
