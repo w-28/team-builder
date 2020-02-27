@@ -1,4 +1,10 @@
 import React, { useState } from 'react';
+import styled from 'styled-components';
+
+let StyleForm = styled.form`
+display: flex;
+flex-direction: column;
+`;
 
 function Form(props){
     let [member, setMember] = useState(
@@ -26,7 +32,7 @@ function Form(props){
 
     //returning the form for the viewer
     return (
-        <form className='member-form' onSubmit={submitForm}>
+        <StyleForm className='member-form' onSubmit={submitForm}>
             <label htmlFor='name'>Name: </label>
             <input id='name' type='text' name='name' value={member.name} onChange={handleChanges}/>
 
@@ -43,8 +49,7 @@ function Form(props){
             <textarea id='favquote' name='favquote' value={member.favquote} onChange={handleChanges}/>
 
             <button type='submit'>Add New Member</button>
-
-        </form>
+        </StyleForm>
     )
 }
 

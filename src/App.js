@@ -3,8 +3,21 @@ import logo from './logo.svg';
 import './App.css';
 import Members from './components/Members';
 import Form from './components/Form';
+import {Route, Link, useHistory} from 'react-router-dom';
+import styled from 'styled-components';
+
+let Logo = styled.a`
+:hover {
+  cursor: pointer;
+}
+`;
 
 function App() {
+  let history = useHistory();
+  let routeHome = () => (
+    history.push('/')
+  )
+
   let [members, setMembers] = useState([
     {
       id: 1,
@@ -31,17 +44,25 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <Form addNewMember={addNewMember}/>
-        <Members members={members}/>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <Logo className='home-button' onClick={routeHome}><img src={logo} className="App-logo" alt="logo" /></Logo>
+        <Route exact path='/'>
+          <Form addNewMember={addNewMember}/>
+          <Link to='/members'>
+            <button>View All Members</button>
+          </Link>
+          <a
+            className="App-link"
+            href="https://reactjs.org"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Learn React
+          </a>
+        </Route>
+
+        <Route path='/members'>
+          <Members members={members}/>
+        </Route>
       </header>
     </div>
   );
