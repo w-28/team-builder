@@ -25,6 +25,7 @@ function App() {
       hobby: member.hobby,
       favquote: member.favquote
     }
+    setMembers([...members, newMember])
   }
 
   return (

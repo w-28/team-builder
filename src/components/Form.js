@@ -18,10 +18,15 @@ function Form(props){
     }
 
     //onSubmit for preventing default and adding new member
+    let submitForm = event => {
+        event.preventDefault();
+        props.addNewMember(member);
+        setMember({name: '', email: '', role: '', hobby:'', favquote: ''});
+    }
 
     //returning the form for the viewer
     return (
-        <form className='member-form'>
+        <form className='member-form' onSubmit={submitForm}>
             <label htmlFor='name'>Name: </label>
             <input id='name' type='text' name='name' onChange={handleChanges}/>
 
@@ -36,6 +41,8 @@ function Form(props){
 
             <label htmlFor='favquote'>Favorite Quote: </label>
             <textarea id='favquote' name='favquote' onChange={handleChanges}/>
+
+            <button type='submit'>Add New Member</button>
 
         </form>
     )
